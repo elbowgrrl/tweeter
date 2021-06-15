@@ -1,0 +1,31 @@
+nav {
+  background-color: #485da1;
+  border: 1px rgb(90, 90, 90);
+  color: #FFFFFF;
+  height: 120px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Bungee', sans-serif;
+  font-size: 175%;
+}
+
+a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+a i {
+  color: #ee82ee;
+  text-align: center;
+}
+
