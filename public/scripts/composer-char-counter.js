@@ -8,6 +8,8 @@ $(document).ready(function() {
     const $count = $charCounter.html(140 - $inputCounter.length);
     if ($inputCounter.length > 140) {
       $charCounter.addClass('over-count');
+    } else {
+      $charCounter.removeClass('over-count');
     }
   });
 
