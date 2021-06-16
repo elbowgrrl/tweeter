@@ -1,9 +1,13 @@
-header {
+.header {
   height: 400px;
   width: 100%;
-  background-color: #d6c4e4;
+  background-color: #7e5a99;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('/images/bedge-grunge.png');
+  background-image: url('/images/gplay.png');
+}
+
+header h2 {
+  color: rgb(20, 20, 20);
 }

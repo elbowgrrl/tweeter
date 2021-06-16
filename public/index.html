@@ -21,6 +21,7 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
@@ -29,7 +30,7 @@
       <span>tweeter</span>
       <a>Write a new tweet<br><i class="fas fa-angle-double-down"></i></a>
     </nav>
-    <header>
+    <header class="header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -47,9 +48,14 @@
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="button-counter">
             <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <output name="counter" id="char-counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+      <section class="existing-tweet-container">
+        <header class="existing-tweet-container">UserName<span>Icon</span></header>
+        <p>There is a quote that goes around lighthouse labs. It is "If I have seen further, it is by standing on the shoulders of Giants. It is by Sit Issan Newton and I like it.</p>
+        <footer class="existing-tweet-container">Date<span>Icons</span></footer>
       </section>
     </main>
   </body>

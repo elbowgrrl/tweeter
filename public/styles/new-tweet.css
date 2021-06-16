@@ -11,13 +11,13 @@
 button {
   background-color: #485da1;
   color: #faf7fa;
-  font-family: 'Bungee', sans-serif;
+  font-family: "Bungee", sans-serif;
   border-radius: 7px;
   padding: 10px 24px;
-  font-size: 36px;
-  }
+  font-size: 24px;
+}
 
-  textarea {
+textarea {
   background-color: #f4f1ec;
   width: 100%;
   font-family: "Source Sans Pro", "sans-serif";
@@ -26,4 +26,13 @@ button {
   border-left: 0px;
   border-bottom: black 5px solid;
   outline: none;
+}
+
+#char-counter {
+  font-family: "Source Sans Pro", "sans-serif";
+  font-weight: 600;
+}
+
+.over-count {
+  color: red;
 }
