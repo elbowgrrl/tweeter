@@ -1,4 +1,6 @@
 article.tweet-container {
+  word-break: break-word;
+  overflow: auto;
   border: 5px solid black;
   display: flex;
   flex-direction: column;
