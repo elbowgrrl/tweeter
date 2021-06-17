@@ -1,15 +1,15 @@
-.existing-tweet-container {
+article.tweet-container {
   border: 5px solid black;
   display: flex;
   flex-direction: column;
   background-color: #f4f1ec;
 }
 
-section.existing-tweet-container:hover {
+article.tweet-container:hover {
   filter: drop-shadow(10px 10px 5px #635063);
 }
 
-header.existing-tweet-container {
+header.tweet-container {
   border: none;
   display: flex;
   flex-direction: row;
@@ -17,7 +17,7 @@ header.existing-tweet-container {
   padding: .5em;
 }
 
-footer.existing-tweet-container {
+footer.tweet-container {
   border: none;
   display: flex;
   flex-direction: row;
@@ -26,7 +26,7 @@ footer.existing-tweet-container {
   
 }
 
-article {
+p {
   width: 95%;
   padding: .5em;
   margin-right: auto;
