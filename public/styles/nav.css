@@ -44,11 +44,11 @@ a {
 
 
 .fa-angle-double-down {
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation: bounce 0.5s;
-  color: #28caca;
+  color: #28CACA;
   text-align: center;
+  animation: bounce 0.5s;
+animation-direction: alternate;
+animation-iteration-count: infinite;
 }
 
 
