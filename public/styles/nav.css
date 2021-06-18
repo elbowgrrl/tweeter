@@ -1,22 +1,38 @@
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+ 
+  a {
+    font-size: 80%;
+    color: #485da1;
+  }
+
+  i.fa-angle-double-down {
+    height: 10vh;
+  }
+
+}
+
+
 nav {
-  position: sticky;
-  top: 0;
+  
   background-color: #485da1;
   color: #FFFFFF;
+  display: flex;
   height: 120px;
+  justify-content: space-between;
   padding-left: 1.5em;
   padding-right: 1.5em;
+  position: sticky;
+  top: 0;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  z-index: 10;
 }
 
 span {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   font-family: 'Bungee', sans-serif;
   font-size: 175%;
+  flex-direction: column;
+  justify-content: center;
 }
 
 a {
@@ -28,11 +44,11 @@ a {
 
 
 .fa-angle-double-down {
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation: bounce 0.5s;
   color: #28caca;
   text-align: center;
-  animation: bounce 0.5s;
-animation-direction: alternate;
-animation-iteration-count: infinite;
 }
 
 

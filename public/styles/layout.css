@@ -14,6 +14,21 @@ html {
  * Global layout stuff
  */
 
+ /*div header-tweets needs to have side by side layout for desktop*/
+
+ @media only screen and (min-width: 1024px) {
+
+  #all-tweets {
+    margin-right: 5vw;
+  }
+  
+  #header-tweets {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -29,6 +44,11 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+article.error {
+  border: 10px solid rgb(228, 19, 19);
+  margin-top: 20px;
 }
 
 

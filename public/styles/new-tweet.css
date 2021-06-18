@@ -1,6 +1,14 @@
+@media only screen and (min-width: 1024px) {
+  .new-tweet {
+    margin-right: 7vw;
+  }
+}
+
 .new-tweet {
   width: 100%;
+  padding-top: 5vh;
   padding-bottom: 1em;
+  margin-top: 3vh;
 }
 
 .button-counter {

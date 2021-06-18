@@ -3,6 +3,9 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
@@ -27,12 +30,14 @@
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
-  <body>
+  
     <!-- Top nav bar (fixed) -->
+    <body>
     <nav>
       <span>tweeter</span>
       <a>Write a new tweet<br><i class="fas fa-angle-double-down"></i></a>
     </nav>
+    <div id="header-tweets">
     <header class="header">
       <div>
           <img src="/images/profile-hex.png"> 
@@ -45,8 +50,11 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <div id="error">
+        <!----- This is where the error message will go  -->
+      </div>
+      <div id="all-tweets">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets/">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="button-counter">
@@ -60,6 +68,8 @@
         <!-- appended tweet content goes here -->
         
       </section>
+    </div>
     </main>
+  </div>
   </body>
 </html>

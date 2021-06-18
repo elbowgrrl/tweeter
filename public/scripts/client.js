@@ -1,11 +1,19 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
+//Client-side JS functions
 
 $(document).ready(function () {
+  //prevents cross site scripting
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  //renders html error message
+  const throwError = function (error) {
+    const $targetContainer = $("#error");
+    $targetContainer.append(error);
+  };
+
   //Utilizes the create tweet function to render all tweets in data set
   const renderTweets = function (tweets) {
     const $targetContainer = $("#tweet-container");
@@ -22,12 +30,18 @@ $(document).ready(function () {
 
   //returns a dynamic html elemt based on Tweet data
   function createTweetElement(data) {
-    const $content = $().text(data.content.text);///maybe not the best solution
+    const avatar = data.user.avatars;
+    const name = data.user.name;
+    const handle = data.user.handle;
+    const text = data.content.text;
+    const space = "  ";
     let $tweet = $(`<article class="tweet-container">
-    <header class="tweet-container"><img src=${data.user.avatars}/>${
-      data.user.name
-    }<span>${data.user.handle}</span></header>
-    <p>${$content}</p>
+    <header class="tweet-container"><div class="head1"><img src=${escape(
+      avatar
+    )}/><span>${space}</span>${escape(name)}</div><i class="head2">${escape(
+      handle
+    )}</i></header>
+    <p>${escape(text)})</p>
     <footer class="tweet-container">${timeago.format(
       data.created_at
     )}<span id="icons"><i class="fas fa-flag"></i><i class="fas fa-heart"></i><i class="fas fa-retweet"></i></span></footer>
@@ -47,21 +61,27 @@ $(document).ready(function () {
 
   //Uses Ajax to capture data from tweet form and sends to server
   $("form").on("submit", function (event) {
+    const $errorNoText = $(
+      `<article class="error">Please enter some text. We are listening!</article>`
+    );
+    const $errorToLong = $(
+      `<article class="error">Tweeter is only able to accept up to 140 characters of text. Becasue Rules.</article>`
+    );
+
     event.preventDefault();
     const $data = $(this).serialize();
-    console.log("this", $data)
     $("#tweet-text").val("");
-    $("#tweet-text").trigger("input");
-    
+    $("#tweet-text").trigger("keyup");
+
     const inputTextLength = $data.length - 5;
 
     if (inputTextLength <= 0 || $data === null) {
-      alert("Please enter a tweet");
+      throwError($errorNoText);
       return;
     }
 
     if (inputTextLength >= 140) {
-      alert("Please enter a tweeet 140 char or less");
+      throwError($errorToLong);
       return;
     }
 
@@ -69,10 +89,10 @@ $(document).ready(function () {
       url: "/tweets/",
       method: "POST",
       data: $data,
-      
     }).then(() => {
       loadTweets();
     });
-    
   });
+
+  //Trigger
 });
