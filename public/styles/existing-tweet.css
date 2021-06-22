@@ -6,6 +6,12 @@
 
 }
 
+@media (any-hover: hover) {
+  article.tweet-container:hover {
+    filter: drop-shadow(10px 10px 5px #635063);
+  }
+}
+
 article.tweet-container {
   font-family: 'Source Sans Pro', sans-serif;
   word-break: break-word;

@@ -32,7 +32,7 @@ function createTweetElement(data) {
   let $tweet = $(`<article class="tweet-container">
   <header class="tweet-container"><div class="head1"><img src=${escape(
     avatar
-  )}/><span>${space}</span>${escape(name)}</div><i class="head2">${escape(
+  )}/></span>${escape(name)}</div><i class="head2">${escape(
     handle
   )}</i></header>
   <p>${escape(text)}</p>
@@ -62,6 +62,7 @@ const renderTweets = function (tweets) {
 //makes a request to /tweets and receive the array of tweets as JSON
 const loadTweets = function () {
   $.ajax({ url: "/tweets/", method: "GET" }).then((tweets) => {
+    $("#tweet-container").html("");
     renderTweets(tweets);
   });
 };
@@ -71,17 +72,14 @@ const onSubmit = function (event) {
     `<article class="error">Please enter some text. We are listening!</article>`
   );
   const $errorToLong = $(
-    `<article class="error">Tweeter is only able to accept up to 140 characters of text. Becasue Rules.</article>`
+    `<article class="error">Tweeter is only able to accept up to 140 characters of text. Because Rules.</article>`
   );
 
   event.preventDefault();
-  const $data = $(this).serialize();
-  $("#tweet-text").val("");
-  $("#tweet-text").trigger("keyup");
+  
+  const inputTextLength = $("#tweet-text").val().length;
 
-  const inputTextLength = $data.length - 5;
-
-  if (inputTextLength <= 0 || $data === null) {
+  if (!inputTextLength) {
     throwError($errorNoText);
     return;
   }
@@ -91,11 +89,14 @@ const onSubmit = function (event) {
     return;
   }
 
+  const $data = $(this).serialize();
   $.ajax({
     url: "/tweets/",
     method: "POST",
     data: $data,
   }).then(() => {
+    $("#tweet-text").val("");
+    $("#tweet-text").trigger("keyup");
     loadTweets();
   });
 };
